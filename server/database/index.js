@@ -4,7 +4,7 @@ const mongoURI = "mongodb+srv://test:test@cluster0-uj202.mongodb.net/contactList
 
 async function connectDB() {
     try {
-        await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
         console.log('connected');
     } catch (error) {
         console.log(error);

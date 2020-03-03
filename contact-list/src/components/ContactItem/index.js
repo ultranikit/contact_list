@@ -1,11 +1,23 @@
 import React from 'react';
+
+import {Button} from '../'
 import './style.scss'
 
 export const ContactItem = (props) => {
-    const { contact, delete: deleteContact } = props;
-    console.log(props);
+    const {contact, deleteContact, handleEditContact} = props;
 
-    console.log(contact);
+    const deleteButtonOptions = {
+        onClick: () => deleteContact(contact),
+        className: 'contact-details__buttons-wrap__buttons contact-details__buttons-wrap__remove-contact',
+        buttonName: 'Delete'
+    };
+
+    const editButtonOptions = {
+        onClick: (event) => handleEditContact(event, contact),
+        className: 'contact-details__buttons-wrap__buttons contact-details__buttons-wrap__edit-contact',
+        buttonName: 'Edit'
+    };
+
     return (
         <div className="contact-container">
             <div className="contact-details">
@@ -22,11 +34,8 @@ export const ContactItem = (props) => {
                 </div>
 
                 <div className="contact-details__buttons-wrap">
-                    <button className="contact-details__buttons-wrap__buttons contact-details__buttons-wrap__edit-contact">Edit</button>
-                    <button onClick={() => {
-                        console.log(contact._id)
-                        deleteContact(contact)
-                    }} className="contact-details__buttons-wrap__buttons contact-details__buttons-wrap__remove-contact">Delete</button>
+                    <Button buttonOptions={editButtonOptions}/>
+                    <Button buttonOptions={deleteButtonOptions}/>
                 </div>
             </div>
 
@@ -35,4 +44,4 @@ export const ContactItem = (props) => {
             </div>
         </div>
     )
-}
+};

@@ -8,23 +8,30 @@ router.get('/contacts', async (req, res) => {
 });
 
 router.post('/add-contact', async (req, res) => {
-    console.log(req.body.new_contact);
     let contact = new Contact(req.body.new_contact);
-    console.log(contact);
     await contact.save((err) => {
         if (err) return console.error(err);
-        console.log(contact);
-        res.json( { created: true,  new_contact: contact});
+        res.json({created: true, new_contact: contact});
     })
+});
+
+router.put('/update-contact', async (req, res) => {
+    try {
+        const updatedContact = req.body.updatedContact;
+        const contactID = req.body.updatedContact._id;
+        const updated = await Contact.findOneAndUpdate({_id: contactID}, updatedContact, {new: true})
+        res.send({updatedContact: updated, updated: true});
+    } catch (e) {
+        res.send({updated: false});
+    }
 });
 
 router.delete('/delete-contact', async (req, res) => {
     let contact = req.body.contact;
-    console.log(contact._id);
     await Contact.findOneAndDelete({_id: contact._id},
         (err) => {
-        if (err) return res.send({deleted: false});
-        res.send({deleted: true});
+            if (err) return res.send({deleted: false});
+            res.send({deleted: true});
         })
 });
 
