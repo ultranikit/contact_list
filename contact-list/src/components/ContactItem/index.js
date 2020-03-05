@@ -1,10 +1,11 @@
 import React from 'react';
 
+import {IoIosStar} from 'react-icons/io';
 import {Button} from '../'
 import './style.scss'
 
 export const ContactItem = (props) => {
-    const {contact, deleteContact, handleEditContact} = props;
+    const {contact, deleteContact, handleEditContact, handleFavorite} = props;
 
     const deleteButtonOptions = {
         onClick: () => deleteContact(contact),
@@ -18,8 +19,20 @@ export const ContactItem = (props) => {
         buttonName: 'Edit'
     };
 
+    const favoriteIcon = (updateContact, contact) => {
+        return (
+            <div className="favorite" onClick={(e) => {
+                e.preventDefault();
+                contact.favorite = !contact.favorite;
+                updateContact(contact);
+            }}>
+            <IoIosStar className={`favorite-icon ${contact.favorite ? 'favorite-active' : ''}`} />
+            </div>
+        )
+    };
+
     return (
-        <div className="contact-container">
+        <div className={`contact-container ${contact.favorite ? 'favorite-container' : ''}`}>
             <div className="contact-details">
                 <div className="contact-details__image-wrap">
                     <img src="" alt=""/>
@@ -36,6 +49,8 @@ export const ContactItem = (props) => {
                 <div className="contact-details__buttons-wrap">
                     <Button buttonOptions={editButtonOptions}/>
                     <Button buttonOptions={deleteButtonOptions}/>
+                    {favoriteIcon(handleFavorite, contact)}
+
                 </div>
             </div>
 

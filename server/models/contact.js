@@ -5,6 +5,7 @@ let Contact = new Schema({
         name:  {type: String, trim: true},
         phone:  {type: String, trim: true},
         details:   {type: String, trim: true},
+        favorite: {type: Boolean, default: false}
     },
     //options
     {

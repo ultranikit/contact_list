@@ -1,10 +1,10 @@
 .contact-container {
   display: flex;
   flex-direction: column;
-  height: 120px;
   width: 50%;
   background-color: #fff;
-  min-width: 320px;
+  min-width: 340px;
+  max-width: 600px;
   padding: 20px;
 
   border-radius: 10px;
@@ -34,6 +34,7 @@
   }
 
   &__buttons-wrap {
+    display: flex;
     flex-shrink: 0;
 
     &__buttons {
@@ -58,4 +59,21 @@
   height: 100%;
   overflow: hidden;
   line-height: 18px;
+}
+
+.favorite {
+  cursor: pointer;
+  width: 30px;
+}
+
+.favorite-icon {
+  width: 100%;
+  height: 90%;
+}
+
+.favorite-container {
+  background-color: gainsboro;
+}
+.favorite-active {
+  fill: orange;
 }

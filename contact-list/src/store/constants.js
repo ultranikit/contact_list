@@ -9,6 +9,11 @@ export const SET_NEW_CONTACT = 'SET_NEW_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
 export const SET_DELETE_CONTACT = 'SET_DELETE_CONTACT';
 
+// Select options
+export const SORT_CONTACT_BY_NAME = 'SORT_CONTACT_BY_NAME';
+export const SORT_CONTACT_BY_FAVORITE = 'SORT_CONTACT_BY_FAVORITE';
+export const SORT_CONTACT_BY_END_NAME = 'SORT_CONTACT_BY_END_NAME';
+
 // Modal
 export const SET_MODAL = 'SET_MODAL';
 

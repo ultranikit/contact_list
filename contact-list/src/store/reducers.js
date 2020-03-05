@@ -46,6 +46,24 @@ function contactsReducer(state = initialState.contacts, action) {
                 contact_list: state.contact_list.filter(contact => contact._id !== payload._id)
             };
 
+        case action_type.SORT_CONTACT_BY_NAME:
+            return {
+                ...state,
+                contact_list: state.contact_list.sort((a,b) => a.name.localeCompare(b.name))
+            };
+
+        case action_type.SORT_CONTACT_BY_FAVORITE:
+            return {
+                ...state,
+                contact_list: state.contact_list.sort((a, b) =>  (a.favorite === b.favorite) ? 0 : a.favorite ? -1 : 1)
+            };
+
+        case action_type.SORT_CONTACT_BY_END_NAME:
+            return {
+                ...state,
+                contact_list: state.contact_list.sort((a, b) => b.name.localeCompare(a.name))
+            };
+
         default:
             return state;
     }

@@ -29,6 +29,18 @@ export const setModal = (payload) => ({
     payload
 });
 
+export const sortContactByName = () => ({
+    type: action_type.SORT_CONTACT_BY_NAME
+});
+
+export const sortContactByFavorite = () => ({
+    type: action_type.SORT_CONTACT_BY_FAVORITE
+});
+
+export const sortContactByEndName = () => ({
+    type: action_type.SORT_CONTACT_BY_END_NAME
+});
+
 
 // Sagas
 function* getContactsSaga() {
