@@ -21,7 +21,7 @@ export const Modal = (props) => {
 
     const validate = (contact) => {
         const phoneNumber = /^\d+$/;
-        const nameRegex = /^[A-Za-z]+$/;
+        const nameRegex = /.*\S.*/;
 
         const obj = {error: true, message: ''};
         for (let key in contact) {
@@ -36,7 +36,7 @@ export const Modal = (props) => {
                     break;
 
                 case 'name':
-                    if (!nameRegex.test(value)) {
+                    if (!value.match(nameRegex)) {
                         obj.message = 'name is not correct';
                         return obj;
                     }
