@@ -11,8 +11,39 @@ export const Modal = (props) => {
 
     const sendData = (event) => {
         event.preventDefault();
+        const isValid = validate(contact);
+        if (isValid.error) return alert(isValid.message);
         handleSubmit(contact);
         closeModal(event);
+    };
+
+
+    const validate = (contact) => {
+        const phoneNumber = /^[0-9\s]*$/;
+        const nameRegex = /^[A-Za-z]+$/;
+
+        const obj = {error: true, message: ''};
+        for (let key in contact) {
+            const value = contact[key];
+
+            switch (key) {
+                case 'phone':
+                    if (value === '' || !phoneNumber.test(value)) {
+                        obj.message = 'phone is not correct';
+                        return obj;
+                    }
+                    break;
+
+                case 'name':
+                    if (!value.match(nameRegex)) {
+                        obj.message = 'name is not correct';
+                        return obj;
+                    }
+                    break;
+            }
+        }
+        obj.error = false;
+        return obj;
     };
 
     const handleInputChange = (event) => {
