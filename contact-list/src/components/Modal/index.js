@@ -20,7 +20,7 @@ export const Modal = (props) => {
 
 
     const validate = (contact) => {
-        const phoneNumber = /^[0-9\s]*$/;
+        const phoneNumber = /^\d+$/;
         const nameRegex = /^[A-Za-z]+$/;
 
         const obj = {error: true, message: ''};
@@ -29,14 +29,14 @@ export const Modal = (props) => {
 
             switch (key) {
                 case 'phone':
-                    if (!phoneNumber.test(value)) {
+                    if (!value.match(phoneNumber)) {
                         obj.message = 'phone is not correct';
                         return obj;
                     }
                     break;
 
                 case 'name':
-                    if (!value.match(nameRegex)) {
+                    if (!nameRegex.test(value)) {
                         obj.message = 'name is not correct';
                         return obj;
                     }
