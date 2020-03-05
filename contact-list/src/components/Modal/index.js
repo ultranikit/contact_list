@@ -28,7 +28,7 @@ export const Modal = (props) => {
 
             switch (key) {
                 case 'phone':
-                    if (value === '' || !phoneNumber.test(value)) {
+                    if (!phoneNumber.test(value)) {
                         obj.message = 'phone is not correct';
                         return obj;
                     }
@@ -40,6 +40,10 @@ export const Modal = (props) => {
                         return obj;
                     }
                     break;
+
+                default: {
+
+                }
             }
         }
         obj.error = false;
@@ -83,7 +87,7 @@ export const Modal = (props) => {
     const closeButtonOptions = {
         onClick: closeModal,
         className: 'close-modal-button',
-        buttonName: 'X'
+        buttonName: 'x'
     };
 
 

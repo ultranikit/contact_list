@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 50%;
   background-color: #fff;
-  min-width: 340px;
+  min-width: 310px;
   max-width: 600px;
   padding: 20px;
 
@@ -41,12 +41,14 @@
       border: none;
       border-radius: 5px;
       margin: 0 5px;
-      width: 80px;
-      height: 30px;
+      padding: 0 15px;
     }
 
     &__edit-contact {
       background-color: lightgreen;
+    }
+    &__remove-contact {
+      background-color: #CD5C5C;
     }
   }
 }
@@ -76,4 +78,17 @@
 }
 .favorite-active {
   fill: orange;
+}
+
+@media screen and (max-width: 768px) {
+
+  .contact-details {
+    &__buttons-wrap {
+
+
+      &__buttons {
+        font-size: 14px;
+      }
+    }
+  }
 }
