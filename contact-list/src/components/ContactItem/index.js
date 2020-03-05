@@ -35,7 +35,7 @@ export const ContactItem = (props) => {
         <div className={`contact-container ${contact.favorite ? 'favorite-container' : ''}`}>
             <div className="contact-details">
                 <div className="contact-details__image-wrap">
-                    <img src="" alt=""/>
+                    {contact.src ? <img src="" alt=""/> : <span className="contact-name-letter">{contact.name[0].toUpperCase()}</span>}
                 </div>
                 <div className="contact-details__contact-info">
                     <p className="contact-details__contact-info__name">

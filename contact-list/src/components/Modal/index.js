@@ -1,6 +1,7 @@
 import React, {Fragment, useState} from 'react';
 
 import {Button} from "../";
+import {MdClose} from 'react-icons/md';
 import './style.scss'
 
 export const Modal = (props) => {
@@ -87,7 +88,7 @@ export const Modal = (props) => {
     const closeButtonOptions = {
         onClick: closeModal,
         className: 'close-modal-button',
-        buttonName: 'x'
+        buttonName: <MdClose />
     };
 
 
