@@ -77,11 +77,14 @@ export const ContactList = connect(mapStateToProps, actionCreators)(props => {
     return (
         <Fragment>
             <div className="contacts">
+
                 <button className={'global-btn'} onClick={() => setModal(!modalStatus)}>Add new contact</button>
                 <ContactSelect handleOnChange={handleOnChangeSelect}
                                options={selectOptions}
                                sortContacts={{sortContactByName, sortContactByFavorite, sortContactByEndName}}
                 />
+
+                <h3 className="contact-number">Total: {contacts.contact_list.length} contacts</h3>
 
                 {
                     contacts.contact_list.map(item =>

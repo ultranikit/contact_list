@@ -19,9 +19,9 @@ const routeContactList = require('./routes/contacts.js');
 app.use('/', routeContactList);
 
 
-// app.use(express.static(path.join(__dirname, '../contact-list/build')));
-// app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../contact-list/build/index.html')));
-// app.use('*', (req, res) => res.sendFile(path.join(__dirname, '../contact-list/index.html')));
+// app.use(express.static(path.join(__dirname, '../build')));
+// app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../build/index.html')));
+// app.use('*', (req, res) => res.sendFile(path.join(__dirname, '../contact-list/build/index.html')));
 
 
 app.listen(port, () => {

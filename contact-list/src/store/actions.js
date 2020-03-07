@@ -46,7 +46,7 @@ export const sortContactByEndName = () => ({
 function* getContactsSaga() {
     while (true) {
         yield take(action_type.GET_CONTACTS);
-        const response = yield axios.get('/contacts');
+        const response = yield axios.get('/concat-api/contacts');
 
         yield put({
             type: action_type.SET_CONTACTS,
@@ -58,7 +58,7 @@ function* getContactsSaga() {
 function* addNewContactSaga() {
     while (true) {
         const {payload: new_contact} = yield take(action_type.ADD_NEW_CONTACT);
-        const response = yield axios.post('/add-contact', {new_contact});
+        const response = yield axios.post('/concat-api/add-contact', {new_contact});
 
         if (response.data.created) {
             yield put({
@@ -74,7 +74,7 @@ function* addNewContactSaga() {
 function* updateContactSaga() {
     while (true) {
         const {payload: updatedContact} = yield take(action_type.UPDATE_CONTACT);
-        const response = yield axios.put('/update-contact', {updatedContact});
+        const response = yield axios.put('/concat-api/update-contact', {updatedContact});
 
         if (response.data.updated) {
             yield put({
@@ -90,7 +90,7 @@ function* updateContactSaga() {
 function* deleteContactSaga() {
     while (true) {
         const {payload: contact} = yield take(action_type.DELETE_CONTACT);
-        const response = yield axios.delete('/delete-contact', {data: {contact}});
+        const response = yield axios.delete('/concat-api/delete-contact', {data: {contact}});
 
         if (response.data.deleted) {
             yield put({

@@ -22,8 +22,8 @@ function contactsReducer(state = initialState.contacts, action) {
                 ...state,
                 contact_list:
                     [
-                        ...state.contact_list,
-                        payload
+                        payload,
+                        ...state.contact_list
                     ]
             };
 
